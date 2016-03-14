@@ -26,7 +26,7 @@ window.onload = function(){
     //city population array  
     var cityPop = [
         {
-            city: 'Byron Bay, AUS',
+            city: 'Byron Bay, Australia',
             population: 4959
         },
         { 
@@ -34,7 +34,7 @@ window.onload = function(){
             population: 233209
         },
         {
-            city: 'Port Vila, VAN',
+            city: 'Port Vila, Vanuatu',
             population: 44040
         },
         {
@@ -63,8 +63,6 @@ window.onload = function(){
             minPop,
             maxPop
         ]);
-    
-    
     
     //create a scale generator for y coordinate
     var y = d3.scale.linear()
@@ -128,7 +126,7 @@ window.onload = function(){
     var title = container.append("text")//append text element to svg
         .attr("class", "title")//define a class
         .attr("text-anchor", "middle")//position text within text element
-        .attr("x", 450)//x coordinate of text element on svg
+        .attr("x", 500)//x coordinate of text element on svg
         .attr("y", 33)//y coordinate of text element on svg
         .text("City Populations");//print text to text element
     
@@ -155,17 +153,18 @@ window.onload = function(){
               return d.city;
               });
     
+    //create format generator
+    var format = d3.format(",");    
+    
     //second line of label
     var popLine = labels.append("tspan")
         .attr("class", "popLine")
         .attr("x", function(d, i){
-            //horisontal position to the right of each circle
+            //horizontal position to the right of each circle
             return x(i) + Math.sqrt(d.population*0.01/Math.PI) + 5;
         })
         .attr("dy", "15")//vertical offset for second line
         .text(function(d){
-            return "Pop. " + d.population;
+            return "Pop. " + format(d.population);//use format generator to add commas
         });
-    
-    
 }

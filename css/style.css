@@ -29,3 +29,13 @@
     font-size: 1.8em;
     font-weight: bold;
 }
+
+.nameLine {
+    font-family: cursive;
+    font-size: 1em;
+}
+
+.popLine {
+    font-family: cursive;
+    font-size: 0.8em;
+}
